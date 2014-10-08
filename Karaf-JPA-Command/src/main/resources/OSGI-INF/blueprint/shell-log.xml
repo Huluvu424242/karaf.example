@@ -3,37 +3,39 @@
 	default-activation="lazy">
 
 	<reference id="entityBroker"
-		interface="de.inovex.javamagazin.jpa.broker.InventoryEntityBroker" />
+		interface="com.github.funthomas424242.jpa.InventoryEntityBroker" />
 
 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
         <command>
-			<action class="de.inovex.javamagazin.jpa.command.CreateCategory">
+			<action class="com.github.funthomas424242.CreateCategory">
+				<property name="broker" ref="entityBroker" />
+			</action>
+		</command>
+		<!-- 
+        <command>
+			<action class="com.github.funthomas424242.DeleteCategory">
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>
 		
         <command>
-			<action class="de.inovex.javamagazin.jpa.command.DeleteCategory">
+			<action class="com.github.funthomas424242.ListCategory">
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>
 		
         <command>
-			<action class="de.inovex.javamagazin.jpa.command.ListCategory">
+			<action class="com.github.funthomas424242.ListItem">
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>
 		
         <command>
-			<action class="de.inovex.javamagazin.jpa.command.ListItem">
+			<action class="com.github.funthomas424242.CreateItem">
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>
 		
-        <command>
-			<action class="de.inovex.javamagazin.jpa.command.CreateItem">
-				<property name="broker" ref="entityBroker" />
-			</action>
-		</command>
+		 -->
 	</command-bundle>
 </blueprint>

@@ -1,4 +1,4 @@
-package com.github.funthomas424242;
+package com.github.funthomas424242.jpa;
 
 
 import org.apache.karaf.shell.commands.Argument;
@@ -6,9 +6,7 @@ import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.commands.Option;
 import org.apache.karaf.shell.console.OsgiCommandSupport;
 
-import com.github.funthomas424242.jpa.InventoryEntityBroker;
-
-@Command(scope = "javamagazin", name = "CreateCategory", description = "CRUD commands for the JavaMagazin samples")
+@Command(scope = "datenquelle", name = "CreateCategory", description = "CRUD commands for the JavaMagazin samples")
 public class CreateCategory extends OsgiCommandSupport {
 
     @Option(name = "-d", aliases = { "--description" }, description = "A description to the category", required = false, multiValued = false)

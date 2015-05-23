@@ -1,9 +1,13 @@
-package com.github.funthomas424242.jpa;
+package com.github.funthomas424242.jpa.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
+import com.github.funthomas424242.jpa.InventoryCategory;
+import com.github.funthomas424242.jpa.InventoryEntityBroker;
+import com.github.funthomas424242.jpa.InventoryItem;
 
 
 
@@ -24,7 +28,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
 
     // Item methods
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getAllItems()
 	 */
     public List<InventoryItem> getAllItems() {
         Query q = em.createQuery("SELECT item FROM InventoryItem item ORDER BY item.itemName");
@@ -33,7 +36,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
 
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getSingleItem(int)
 	 */
     public InventoryItem getSingleItem(int id) {
         Query q = em.createQuery("SELECT item FROM InventoryItem item WHERE item.id=" + id);
@@ -41,7 +43,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
     
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#addItem(java.lang.String, java.lang.String, float, int)
 	 */
     public void addItem(String name, String description, float price, int categoryID) 
     {
@@ -56,7 +57,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
 
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#updateItem(int, java.lang.String, java.lang.String, float, int)
 	 */
     public void updateItem(int id, String name, String description, float price, int categoryID) {
 
@@ -70,7 +70,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
 
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#deleteItem(int)
 	 */
     public void deleteItem(int id) {
     	InventoryItem item = em.find(InventoryItem.class, id);
@@ -80,7 +79,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     
 //Category Methods    
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getAllCategories()
 	 */
     public List<InventoryCategory> getAllCategories() {
         Query q = em.createQuery("SELECT cat FROM InventoryCategory cat ORDER BY cat.categoryName");
@@ -89,7 +87,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
 
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getSingleCategory(int)
 	 */
     public InventoryCategory getSingleCategory(int id) {
         Query q = em.createQuery("SELECT cat FROM InventoryCategory cat WHERE cat.id=" + id);
@@ -97,7 +94,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
     
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#addCategory(java.lang.String, java.lang.String)
 	 */
     public void addCategory(String name, String description) 
     {
@@ -109,7 +105,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
 
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#updateCategory(int, java.lang.String, java.lang.String)
 	 */
     public void updateCategory(int id, String name, String description) {
 
@@ -121,7 +116,6 @@ public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
     }
 
     /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#deleteCategory(int)
 	 */
     public void deleteCategory(int id) {
     	InventoryCategory cat = em.find(InventoryCategory.class, id);

@@ -7,7 +7,7 @@
 
 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
         <command>
-			<action class="com.github.funthomas424242.CreateCategory">
+			<action class="com.github.funthomas424242.jpa.CreateCategory">
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>

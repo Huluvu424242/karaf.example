@@ -3,7 +3,8 @@ karaf.example
 
 Beispielapp in Karaf
 
-Vorbereitung:
+Vorbereitung
+------------
 
 	karaf@root()> feature:install jpa
 	karaf@root()> feature:install jta
@@ -14,4 +15,9 @@ Vorbereitung:
 	karaf@root()> bundle:install -s mvn:com.h2database/h2/1.3.167
 	Bundle ID: 98
 	karaf@root()> 
+
+TODO
+====
+* https://github.com/FunThomas424242/karaf.example/pull/1
+*
 

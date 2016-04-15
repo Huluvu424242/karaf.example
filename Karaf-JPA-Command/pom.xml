@@ -17,7 +17,7 @@
 		<dependency.log4j.version>1.2.14</dependency.log4j.version>
 		<dependency.commons-io.version>2.3</dependency.commons-io.version>
 		<dependency.commons-beanutils.version>1.8.3</dependency.commons-beanutils.version>
-		<dependency.commons-collections.version>3.2.1</dependency.commons-collections.version>
+		<dependency.commons-collections.version>3.2.2</dependency.commons-collections.version>
 		<dependency.cxf.version>2.6.3</dependency.cxf.version>
 		<dependecy.commons-dbcp.version>1.4</dependecy.commons-dbcp.version>
 		<dependency.openjpa.version>2.2.2</dependency.openjpa.version>
@@ -25,7 +25,7 @@
 		<dependency.aries-proxy.version>1.0.1</dependency.aries-proxy.version>
 		<dependency.commons-io.version>2.3</dependency.commons-io.version>
 		<dependency.commons-beanutils.version>1.8.3</dependency.commons-beanutils.version>
-		<dependency.commons-collections.version>3.2.1</dependency.commons-collections.version>
+		<dependency.commons-collections.version>3.2.2</dependency.commons-collections.version>
 		<dependency.commons-dbcp.version>1.4</dependency.commons-dbcp.version>
 		<dependency.commons-lang.version>2.4</dependency.commons-lang.version>
 		<dependency.commons-pool.version>1.5.4</dependency.commons-pool.version>

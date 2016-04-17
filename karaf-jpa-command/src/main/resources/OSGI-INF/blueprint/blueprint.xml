@@ -26,12 +26,10 @@
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>
-		<!-- 
         <command>
-			<action class="com.github.funthomas424242.DeleteCategory">
-				<property name="broker" ref="entityBroker" />
-			</action>
+			<action class="com.github.funthomas424242.karaf.saghallo.HalloCommand"/>
 		</command>
+		<!-- 
 		
         <command>
 			<action class="com.github.funthomas424242.ListCategory">

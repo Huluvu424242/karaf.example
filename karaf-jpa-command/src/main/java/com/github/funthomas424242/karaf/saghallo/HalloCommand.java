@@ -9,7 +9,7 @@ import org.apache.karaf.shell.api.action.lifecycle.Service;
 
 @Command(scope = "funthomas", name = "sagHallo", description = "Sagt Hallo")
 @Service
-public class SagHallo implements Action {
+public class HalloCommand implements Action {
 
 	@Argument(index = 0, name = "name", description = "Der zu grüßende Name", required = true, multiValued = false)
 	@Completion(SimpleNameCompleter.class)

@@ -3,17 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-	    <groupId>com.github.funthomas424242</groupId>
-	    <artifactId>karaf.example</artifactId>
-	    <version>1.0.2-SNAPSHOT</version>
+		<groupId>com.github.funthomas424242</groupId>
+		<artifactId>karaf.example</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>karaf-jpa-command</artifactId>
+	<artifactId>saghallo-command</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>Karaf-JPA-Command</name>
+	<name>SagHallo-Command</name>
 	<url>http://maven.apache.org</url>
 
+
+	
 
 	<dependencies>
 		<dependency>
@@ -32,23 +34,23 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>javax.transaction-api</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-		    <groupId>org.osgi</groupId>
-		    <artifactId>org.osgi.compendium</artifactId>
+			<groupId>javax.transaction</groupId>
+			<artifactId>javax.transaction-api</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>1.2</version>
-            <optional>true</optional>
-        </dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
+			<optional>true</optional>
+		</dependency>
 
 
-		
+
 
 		<!-- Test Dependencies -->
 		<dependency>
@@ -77,13 +79,10 @@
 				<configuration>
 					<instructions>
 						<Karaf-Commands>*</Karaf-Commands>
-						<Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Export-Package>com.github.funthomas424242.karaf.inventory;version=${project.version}						
+						<Export-Package>com.github.funthomas424242.karaf.saghallo;version=${project.version}
 						</Export-Package>
-						<Import-Package>org.apache.aries.blueprint,
-							org.osgi.service.blueprint.container,
-							org.osgi.service.blueprint.reflect,
+						<Import-Package>
 							org.apache.felix.service.command,
 							org.apache.karaf.shell.commands,
 							org.apache.karaf.shell.console,

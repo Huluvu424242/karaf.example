@@ -1,6 +1,6 @@
-=CHANGES=
+# CHANGES
 
-==1.0.1-SNAPSHOT==
+## 1.0.1-SNAPSHOT
 
 * pull request #1 by gmlewis (Glenn Lewis)
 Upgrade Apache Commons Collections to v3.2.2 
@@ -14,7 +14,7 @@ https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-8103
 https://commons.apache.org/proper/commons-collections/security-reports.html
 http://foxglovesecurity.com/2015/11/06/what-do-weblogic-websphere-jboss-jenkins-opennms-and-your-application-have-in-common-this-vulnerability/
 
-==1.0.0-SNAPSHOT==
+## 1.0.0-SNAPSHOT==
 
 * initializing project
 * karaf-3.0.1 supported

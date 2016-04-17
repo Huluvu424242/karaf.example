@@ -1,4 +1,4 @@
-package com.github.funthomas424242.karaf.commands.saghallo;
+package com.github.funthomas424242.karaf.saghallo;
 
 import org.apache.karaf.shell.api.action.Action;
 import org.apache.karaf.shell.api.action.Argument;

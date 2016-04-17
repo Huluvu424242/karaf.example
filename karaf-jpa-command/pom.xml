@@ -74,6 +74,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.openjpa</groupId>
@@ -110,7 +111,7 @@
 						<Karaf-Commands>*</Karaf-Commands>
 						<Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Export-Package>com.github.funthomas424242.*;version=${project.version}</Export-Package>
+						<Export-Package>com.github.funthomas424242.saghallo;version=${project.version}</Export-Package>
 						<Import-Package>org.apache.aries.blueprint,
 							org.osgi.service.blueprint.container,
 							org.osgi.service.blueprint.reflect,

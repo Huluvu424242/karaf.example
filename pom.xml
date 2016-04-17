@@ -67,7 +67,7 @@
 
 	<modules>
 		<module>saghallo-command</module>
-		<module>karaf-jpa-command</module>
+		<module>inventory-command</module>
 	</modules>
 
 

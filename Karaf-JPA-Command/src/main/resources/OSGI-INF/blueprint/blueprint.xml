@@ -2,12 +2,28 @@
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
 	default-activation="lazy">
 
+	<!-- DataSource to h2 database -->
+	<bean id="dataSource" class="org.h2.jdbcx.JdbcDataSource">
+		<property name="URL" value="jdbc:h2:${karaf.data}/database/h2Test" />
+		<property name="user" value="sa" />
+		<property name="password" value="null" />
+	</bean>
+
+	<service interface="javax.sql.DataSource" ref="dataSource">
+		<service-properties>
+			<entry key="osgi.jndi.service.name" value="jdbc/datenquelle" />
+		</service-properties>
+	</service>
+    
+
+
+
 	<reference id="entityBroker"
 		interface="com.github.funthomas424242.jpa.InventoryEntityBroker" />
 
 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
         <command>
-			<action class="com.github.funthomas424242.CreateCategory">
+			<action class="com.github.funthomas424242.jpa.CreateCategoryCommand">
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>

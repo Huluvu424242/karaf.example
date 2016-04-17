@@ -1,4 +1,5 @@
 package com.github.funthomas424242.jpa;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,68 +13,66 @@ import javax.persistence.Version;
 
 @Entity
 public class InventoryCategory {
-    private int version;
-    private int id;
-    
-    private String categoryName;
-    private String categoryDescription;
+	private int version;
+	private int id;
 
-    List<InventoryItem> items;
-   
-    public InventoryCategory(){}
-    
-    @Column(name = "categoryName")
-    public String getCategoryName() {
-        return categoryName;
-    }
+	private String categoryName;
+	private String categoryDescription;
 
-    public void setCategoryName(String name) {
-        this.categoryName = name;
-    }
+	List<InventoryItem> items;
 
-    @Column(name = "itemDescription")
-    public String getCategoryDescription() {
-        return categoryDescription;
-    }
+	public InventoryCategory() {
+	}
 
-    public void setCategoryDescription(String description) {
-        this.categoryDescription = description;
-    }
+	@Column(name = "categoryName")
+	public String getCategoryName() {
+		return categoryName;
+	}
 
-    @Version
-    @Column(name = "version_field")
-    // not required
-    public int getVersion() {
-        return version;
-    }
+	public void setCategoryName(final String name) {
+		this.categoryName = name;
+	}
 
-    public void setVersion(int version) {
-        this.version = version;
-    }
+	@Column(name = "itemDescription")
+	public String getCategoryDescription() {
+		return categoryDescription;
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
-        return id;
-    }
+	public void setCategoryDescription(final String description) {
+		this.categoryDescription = description;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    @OneToMany(targetEntity=InventoryItem.class, 
-    		cascade=CascadeType.ALL, 
-    		mappedBy="category")
-    public List<InventoryItem> getItems() 
-    { 
-        return items; 
-    }
-    public void setItems(List<InventoryItem> items)
-    {
-        this.items = items;
-    }
-    public void addItem(InventoryItem item)
-    {
-    	this.items.add(item);
-    }
+	@Version
+	@Column(name = "version_field")
+	// not required
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(final int version) {
+		this.version = version;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
+	}
+
+	public void setId(final int id) {
+		this.id = id;
+	}
+
+	@OneToMany(targetEntity = InventoryItem.class, cascade = CascadeType.ALL, mappedBy = "category")
+	public List<InventoryItem> getItems() {
+		return items;
+	}
+
+	public void setItems(final List<InventoryItem> items) {
+		this.items = items;
+	}
+
+	public void addItem(final InventoryItem item) {
+		this.items.add(item);
+	}
 }

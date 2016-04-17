@@ -1,158 +1,195 @@
 package com.github.funthomas424242.jpa;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-
-
 public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
-    EntityManager em;
+	EntityManager em;
 
-    void close() {
-        em.close();
-    }
-    
+	void close() {
+		em.close();
+	}
+
 	/**
 	 * @param em
 	 *            the em to set
 	 */
-	public void setEm(EntityManager em) {
+	public void setEm(final EntityManager em) {
 		this.em = em;
 	}
 
-    // Item methods
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getAllItems()
+	// Item methods
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getAllItems()
 	 */
-    public List<InventoryItem> getAllItems() {
-        Query q = em.createQuery("SELECT item FROM InventoryItem item ORDER BY item.itemName");
+	public List<InventoryItem> getAllItems() {
+		Query q = em.createQuery("SELECT item FROM InventoryItem item ORDER BY item.itemName");
 
-        return (List<InventoryItem>) q.getResultList();
-    }
+		return (List<InventoryItem>) q.getResultList();
+	}
 
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getSingleItem(int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getSingleItem
+	 * (int)
 	 */
-    public InventoryItem getSingleItem(int id) {
-        Query q = em.createQuery("SELECT item FROM InventoryItem item WHERE item.id=" + id);
-        return (InventoryItem) q.getSingleResult();
-    }
-    
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#addItem(java.lang.String, java.lang.String, float, int)
+	public InventoryItem getSingleItem(final int id) {
+		Query q = em.createQuery("SELECT item FROM InventoryItem item WHERE item.id=" + id);
+		return (InventoryItem) q.getSingleResult();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#addItem(java.
+	 * lang.String, java.lang.String, float, int)
 	 */
-    public void addItem(String name, String description, float price, int categoryID) 
-    {
+	public void addItem(final String name, final String description, final float price, final int categoryID) {
 
-        InventoryItem item = new InventoryItem();
-        item.setItemName(name);
-        item.setItemDescription(description);
-        item.setItemPrice(price);
-        item.setCategory(getSingleCategory(categoryID));
-        
-        em.persist(item);
-    }
+		InventoryItem item = new InventoryItem();
+		item.setItemName(name);
+		item.setItemDescription(description);
+		item.setItemPrice(price);
+		item.setCategory(getSingleCategory(categoryID));
 
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#updateItem(int, java.lang.String, java.lang.String, float, int)
+		em.persist(item);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#updateItem(
+	 * int, java.lang.String, java.lang.String, float, int)
 	 */
-    public void updateItem(int id, String name, String description, float price, int categoryID) {
+	public void updateItem(final int id, final String name, final String description, final float price,
+			final int categoryID) {
 
-    	InventoryItem item = em.find(InventoryItem.class, id);
-        item.setItemName(name);
-        item.setItemDescription(description);
-        item.setItemPrice(price);
-        item.setCategory(getSingleCategory(categoryID));
+		InventoryItem item = em.find(InventoryItem.class, id);
+		item.setItemName(name);
+		item.setItemDescription(description);
+		item.setItemPrice(price);
+		item.setCategory(getSingleCategory(categoryID));
 
-        em.merge(item);
-    }
+		em.merge(item);
+	}
 
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#deleteItem(int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#deleteItem(
+	 * int)
 	 */
-    public void deleteItem(int id) {
-    	InventoryItem item = em.find(InventoryItem.class, id);
+	public void deleteItem(final int id) {
+		InventoryItem item = em.find(InventoryItem.class, id);
 
-        em.remove(item);
-    }
-    
-//Category Methods    
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getAllCategories()
+		em.remove(item);
+	}
+
+	// Category Methods
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#
+	 * getAllCategories()
 	 */
-    public List<InventoryCategory> getAllCategories() {
-        Query q = em.createQuery("SELECT cat FROM InventoryCategory cat ORDER BY cat.categoryName");
+	public List<InventoryCategory> getAllCategories() {
+		Query q = em.createQuery("SELECT cat FROM InventoryCategory cat ORDER BY cat.categoryName");
 
-        return (List<InventoryCategory>) q.getResultList();
-    }
+		return (List<InventoryCategory>) q.getResultList();
+	}
 
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#getSingleCategory(int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#
+	 * getSingleCategory(int)
 	 */
-    public InventoryCategory getSingleCategory(int id) {
-        Query q = em.createQuery("SELECT cat FROM InventoryCategory cat WHERE cat.id=" + id);
-        return (InventoryCategory) q.getSingleResult();
-    }
-    
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#addCategory(java.lang.String, java.lang.String)
+	public InventoryCategory getSingleCategory(final int id) {
+		Query q = em.createQuery("SELECT cat FROM InventoryCategory cat WHERE cat.id=" + id);
+		return (InventoryCategory) q.getSingleResult();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#addCategory(
+	 * java.lang.String, java.lang.String)
 	 */
-    public void addCategory(String name, String description) 
-    {
-        InventoryCategory cat = new InventoryCategory();
-        cat.setCategoryName(name);
-        cat.setCategoryDescription(description);
-        
-        em.persist(cat);
-    }
+	public void addCategory(final String name, final String description) {
+		InventoryCategory cat = new InventoryCategory();
+		cat.setCategoryName(name);
+		cat.setCategoryDescription(description);
 
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#updateCategory(int, java.lang.String, java.lang.String)
+		em.persist(cat);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#
+	 * updateCategory(int, java.lang.String, java.lang.String)
 	 */
-    public void updateCategory(int id, String name, String description) {
+	public void updateCategory(final int id, final String name, final String description) {
 
-    	InventoryCategory cat = em.find(InventoryCategory.class, id);
-        cat.setCategoryName(name);
-        cat.setCategoryDescription(description);
+		InventoryCategory cat = em.find(InventoryCategory.class, id);
+		cat.setCategoryName(name);
+		cat.setCategoryDescription(description);
 
-        em.merge(cat);
-    }
+		em.merge(cat);
+	}
 
-    /* (non-Javadoc)
-	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#deleteCategory(int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.inovex.javamagazin.jpa.broker.impl.InventoryEntityBroker#
+	 * deleteCategory(int)
 	 */
-    public void deleteCategory(int id) {
-    	InventoryCategory cat = em.find(InventoryCategory.class, id);
+	public void deleteCategory(final int id) {
+		InventoryCategory cat = em.find(InventoryCategory.class, id);
 
-        em.remove(cat);
-    }
+		em.remove(cat);
+	}
 
-	public void deleteCategoryByName(String name) {
+	public void deleteCategoryByName(final String name) {
 		em.remove(getCategoryByName(name));
 	}
 
-	public InventoryCategory getCategoryByName(String name) {
-		TypedQuery<InventoryCategory> query = em.createQuery("SELECT cat FROM InventoryCategory cat where cat.categoryName = :name", InventoryCategory.class);
+	public InventoryCategory getCategoryByName(final String name) {
+		TypedQuery<InventoryCategory> query = em.createQuery(
+				"SELECT cat FROM InventoryCategory cat where cat.categoryName = :name", InventoryCategory.class);
 		query.setParameter("name", name);
-		
+
 		return query.getSingleResult();
 	}
 
-	public List<InventoryItem> getAllItemsByCategory(String categoryName) {
-		TypedQuery<InventoryItem> query = em.createQuery("SELECT item FROM InventoryItem item where item.category.categoryName = :name ORDER BY item.itemName", InventoryItem.class);
+	public List<InventoryItem> getAllItemsByCategory(final String categoryName) {
+		TypedQuery<InventoryItem> query = em.createQuery(
+				"SELECT item FROM InventoryItem item where item.category.categoryName = :name ORDER BY item.itemName",
+				InventoryItem.class);
 		query.setParameter("name", categoryName);
-        return query.getResultList();
+		return query.getResultList();
 	}
 
-	public void deleteItemByName(String name) {
-		InventoryItem inventoryItem = getInventoryItemByName(name); 
+	public void deleteItemByName(final String name) {
+		InventoryItem inventoryItem = getInventoryItemByName(name);
 		deleteItem(inventoryItem.getId());
 	}
 
-	public InventoryItem getInventoryItemByName(String name) {
-		TypedQuery<InventoryItem> query = em.createQuery("SELECT item FROM InventoryItem item where item.itemName = :name", InventoryItem.class);
+	public InventoryItem getInventoryItemByName(final String name) {
+		TypedQuery<InventoryItem> query = em
+				.createQuery("SELECT item FROM InventoryItem item where item.itemName = :name", InventoryItem.class);
 		query.setParameter("name", name);
 		return query.getSingleResult();
 	}

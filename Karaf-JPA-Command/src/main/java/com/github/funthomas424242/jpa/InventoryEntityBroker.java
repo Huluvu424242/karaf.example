@@ -1,6 +1,6 @@
 package com.github.funthomas424242.jpa;
-import java.util.List;
 
+import java.util.List;
 
 public interface InventoryEntityBroker {
 
@@ -9,15 +9,13 @@ public interface InventoryEntityBroker {
 
 	InventoryItem getSingleItem(int id);
 
-	void addItem(String name, String description, float price,
-			int categoryID);
+	void addItem(String name, String description, float price, int categoryID);
 
-	void updateItem(int id, String name, String description,
-			float price, int categoryID);
+	void updateItem(int id, String name, String description, float price, int categoryID);
 
 	void deleteItem(int id);
 
-	//Category Methods    
+	// Category Methods
 	List<InventoryCategory> getAllCategories();
 
 	InventoryCategory getSingleCategory(int id);

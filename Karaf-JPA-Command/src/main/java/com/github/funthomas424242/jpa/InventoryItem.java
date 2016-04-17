@@ -1,4 +1,5 @@
 package com.github.funthomas424242.jpa;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,76 +11,73 @@ import javax.persistence.Version;
 
 @Entity
 public class InventoryItem {
-    private int version;
-    private int id;
-    
-    private String itemName;
-    private String itemDescription;
-    private float itemPrice;
+	private int version;
+	private int id;
 
-    protected InventoryCategory category;
-    
-    public InventoryItem(){}
-    
-    @Column(name = "itemName")
-    public String getItemName() {
-        return itemName;
-    }
+	private String itemName;
+	private String itemDescription;
+	private float itemPrice;
 
-    public void setItemName(String name) {
-        this.itemName = name;
-    }
+	protected InventoryCategory category;
 
-    @Column(name = "itemDescription")
-    public String getItemDescription() {
-        return itemDescription;
-    }
+	public InventoryItem() {
+	}
 
-    public void setItemDescription(String description) {
-        this.itemDescription = description;
-    }
+	@Column(name = "itemName")
+	public String getItemName() {
+		return itemName;
+	}
 
-    @Column(name = "itemPrice")
-    public float getItemPrice() {
-        return itemPrice;
-    }
+	public void setItemName(final String name) {
+		this.itemName = name;
+	}
 
-    public void setItemPrice(float price) {
-        this.itemPrice = price;
-    }
+	@Column(name = "itemDescription")
+	public String getItemDescription() {
+		return itemDescription;
+	}
 
-    
-    @Version
-    @Column(name = "version_field")
-    // not required
-    public int getVersion() {
-        return version;
-    }
+	public void setItemDescription(final String description) {
+		this.itemDescription = description;
+	}
 
-    public void setVersion(int version) {
-        this.version = version;
-    }
+	@Column(name = "itemPrice")
+	public float getItemPrice() {
+		return itemPrice;
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
-        return id;
-    }
+	public void setItemPrice(final float price) {
+		this.itemPrice = price;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	@Version
+	@Column(name = "version_field")
+	// not required
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(final int version) {
+		this.version = version;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
+	}
+
+	public void setId(final int id) {
+		this.id = id;
+	}
 
 	@ManyToOne
-	@JoinColumn(name="CAT_ID", nullable=false)
-	public InventoryCategory getCategory()
-	{
-	    return category;
+	@JoinColumn(name = "CAT_ID", nullable = false)
+	public InventoryCategory getCategory() {
+		return category;
 	}
-    
-    public void setCategory(InventoryCategory category)
-    {
-        this.category = category;
-    }
-}
 
+	public void setCategory(final InventoryCategory category) {
+		this.category = category;
+	}
+}

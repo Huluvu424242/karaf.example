@@ -19,12 +19,12 @@ public class CreateCategoryCommand implements Action {
 	@Argument(name = "name", description = "Name of Category", required = true, multiValued = false)
 	private String name;
 
-	private InventoryEntityBroker broker = new InventoryEntityBrokerImpl();
+	@Inject
+	private InventoryEntityBroker broker;
 
-	// @Inject
-	// public void setBroker(final InventoryEntityBroker broker) {
-	// this.broker = broker;
-	// }
+	public void setBroker(final InventoryEntityBroker broker) {
+		this.broker = broker;
+	}
 
 	@Override
 	public Object execute() throws Exception {

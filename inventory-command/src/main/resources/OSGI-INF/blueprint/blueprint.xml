@@ -20,6 +20,11 @@
 	<reference id="entityBroker"
 		interface="com.github.funthomas424242.karaf.inventory.InventoryEntityBroker" />
 
+    <bean id="createCategory" class="com.github.funthomas424242.karaf.inventory.CreateCategoryCommand">
+        <property name="broker" ref="entityBroker" />
+    </bean>
+
+		<!-- 
 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
         <command>
 			<action class="com.github.funthomas424242.karaf.inventory.CreateCategoryCommand">
@@ -27,7 +32,6 @@
 			</action>
 		</command>
        
-		<!-- 
 		
         <command>
 			<action class="com.github.funthomas424242.ListCategory">
@@ -47,6 +51,6 @@
 			</action>
 		</command>
 		
-		 -->
 	</command-bundle>
+		 -->
 </blueprint>

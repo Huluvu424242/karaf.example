@@ -1,5 +1,7 @@
 package com.github.funthomas424242.karaf.inventory;
 
+import javax.inject.Inject;
+
 import org.apache.karaf.shell.api.action.Action;
 import org.apache.karaf.shell.api.action.Argument;
 import org.apache.karaf.shell.api.action.Command;
@@ -12,16 +14,17 @@ public class CreateCategoryCommand implements Action {
 
 	@Option(name = "-d", aliases = {
 			"--description" }, description = "A description to the category", required = false, multiValued = false)
-	private String description;
+	private String description = "DefaultBeschreibung";
 
 	@Argument(name = "name", description = "Name of Category", required = true, multiValued = false)
 	private String name;
 
-	private InventoryEntityBroker broker;
+	private InventoryEntityBroker broker = new InventoryEntityBrokerImpl();
 
-	public void setBroker(final InventoryEntityBroker broker) {
-		this.broker = broker;
-	}
+	// @Inject
+	// public void setBroker(final InventoryEntityBroker broker) {
+	// this.broker = broker;
+	// }
 
 	@Override
 	public Object execute() throws Exception {

@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 public class InventoryEntityBrokerImpl implements InventoryEntityBroker {
+
 	EntityManager em;
 
 	void close() {

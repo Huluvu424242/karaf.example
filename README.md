@@ -1,23 +1,21 @@
-karaf.example
-=============
+# karaf.example
 
-Beispielapp in Karaf
 
-Vorbereitung
-------------
+Anwendungsbeispiele für Karaf:
 
-	karaf@root()> feature:install jpa
-	karaf@root()> feature:install jta
-	Error executing command: No feature named 'jta' with version '0.0.0' available
-	karaf@root()> feature:install jndi
-	karaf@root()> feature:install transaction
-	karaf@root()> feature:install jdbc
-	karaf@root()> bundle:install -s mvn:com.h2database/h2/1.3.167
-	Bundle ID: 98
-	karaf@root()> 
+* Einfaches Begrüssungskommando sagHallo
+* Einfaches JPA Kommanda zum Verwalten eines Inventory
 
-TODO
-====
-* https://github.com/FunThomas424242/karaf.example/pull/1
-*
+[![Build Status](https://travis-ci.org/FunThomas424242/karaf.example.svg?branch=master)](https://travis-ci.org/FunThomas424242/karaf.example)
+
+## Ausprobieren
+
+1. Das Projekt local klonen und mittels mvn clean install bauen
+1. Karaf version 4.0.4 herunterladen und entpacken
+1. Karaf über bin/karaf starten
+1. In der Karaf Console die Projektdatei karaf.init ausführen (Inhalt in die Console kopieren)
+1. ISSUE #8 Es treten noch Fehler beim jpa command auf
+1. funthomas eingeben -> die Shell wechselt in den Kontext
+1. sagHallo Mascha aufrufen -> es erscheint Hallo Mascha!
+
 

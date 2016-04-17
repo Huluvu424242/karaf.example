@@ -81,6 +81,19 @@
 			<artifactId>openjpa</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>javax.transaction-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+		    <groupId>org.osgi</groupId>
+		    <artifactId>org.osgi.compendium</artifactId>
+		    <version>5.0.0</version>
+		</dependency>
+
+
+		
 
 		<!-- Test Dependencies -->
 		<dependency>
@@ -192,8 +205,7 @@
 			<dependency>
 				<groupId>org.osgi</groupId>
 				<artifactId>org.osgi.compendium</artifactId>
-				<version>${dependency.osgi.version}</version>
-				<scope>test</scope>
+				<version>5.0.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.karaf.shell</groupId>

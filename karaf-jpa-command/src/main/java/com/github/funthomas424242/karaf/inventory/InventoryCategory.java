@@ -1,4 +1,4 @@
-package com.github.funthomas424242.karaf.jpa.inventory;
+package com.github.funthomas424242.karaf.inventory;
 
 import java.util.List;
 

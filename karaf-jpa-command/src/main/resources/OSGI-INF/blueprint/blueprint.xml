@@ -18,11 +18,11 @@
 	-->
 
 	<reference id="entityBroker"
-		interface="com.github.funthomas424242.jpa.InventoryEntityBroker" />
+		interface="com.github.funthomas424242.karaf.inventory.InventoryEntityBroker" />
 
 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0">
         <command>
-			<action class="com.github.funthomas424242.jpa.CreateCategoryCommand">
+			<action class="com.github.funthomas424242.karaf.inventory.CreateCategoryCommand">
 				<property name="broker" ref="entityBroker" />
 			</action>
 		</command>

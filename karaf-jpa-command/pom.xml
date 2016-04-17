@@ -17,13 +17,13 @@
 		<junit.version>4.11</junit.version>
 		<!-- osgi dependencies -->
 		<karaf.version>4.0.4</karaf.version>
-		
+
 		<!-- db dependencies -->
-        <h2.version>1.4.191</h2.version>
-        <!-- jpa dependencies -->
-        <openjpa.version>2.4.0</openjpa.version>
-        
-        <!-- provided dependencies -->        		
+		<h2.version>1.4.191</h2.version>
+		<!-- jpa dependencies -->
+		<openjpa.version>2.4.0</openjpa.version>
+
+		<!-- provided dependencies -->
 		<dependency.slf4j.version>1.6.1</dependency.slf4j.version>
 		<dependency.log4j.version>1.2.14</dependency.log4j.version>
 		<dependency.logback.version>0.9.29</dependency.logback.version>
@@ -32,10 +32,10 @@
 		<dependency.commons-io.version>2.3</dependency.commons-io.version>
 		<dependency.commons-beanutils.version>1.8.3</dependency.commons-beanutils.version>
 		<dependency.commons-collections.version>3.2.2</dependency.commons-collections.version>
-		<dependency.commons-dbcp.version>1.4</dependency.commons-dbcp.version>
+		<dependency.commons-dbcp.version>2.1.1</dependency.commons-dbcp.version>
 		<dependency.commons-lang.version>2.4</dependency.commons-lang.version>
 		<dependency.commons-pool.version>1.5.4</dependency.commons-pool.version>
-		
+
 		<!-- jpa dependencies -->
 		<dependency.aries-jpa.version>1.0.1</dependency.aries-jpa.version>
 		<dependency.openjpa-plugin.version>1.2</dependency.openjpa-plugin.version>
@@ -175,10 +175,9 @@
 			</dependency>
 			<!-- DBCP -->
 			<dependency>
-				<groupId>commons-dbcp</groupId>
-				<artifactId>commons-dbcp</artifactId>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
 				<version>${dependency.commons-dbcp.version}</version>
-				<scope>test</scope>
 			</dependency>
 			<!-- OSGi dependencies -->
 			<dependency>

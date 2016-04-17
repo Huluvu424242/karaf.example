@@ -1,4 +1,4 @@
-package com.github.funthomas424242.jpa;
+package com.github.funthomas424242.karaf.jpa.inventory;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,7 +1,8 @@
+shell:completion subshell
 feature:install jpa
 feature:install jndi
 feature:install transaction
 feature:install jdbc
 feature:install openjpa
-bundle:install -s mvn:com.h2database/h2/1.3.167
-jdbc:create -t H2 -url jdbc:h2:${karaf.data}/database/h2Test -u sa -d org.h2.jdbcx.JdbcDataSource datenquelle
+bundle:install -s mvn:com.h2database/h2/1.4.191
+jdbc:ds-create -dbName H2 -url jdbc:h2:${karaf.data}/database/h2Test -u sa -dn org.h2.jdbcx.JdbcDataSource jdbc/datenquelle

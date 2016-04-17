@@ -1,4 +1,4 @@
-package com.github.funthomas424242.jpa;
+package com.github.funthomas424242.karaf.jpa.inventory;
 
 import org.apache.karaf.shell.api.action.Action;
 import org.apache.karaf.shell.api.action.Argument;

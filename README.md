@@ -19,3 +19,8 @@ Anwendungsbeispiele für Karaf:
 1. sagHallo Mascha aufrufen -> es erscheint Hallo Mascha!
 
 
+## Quelleverzeichnis
+
+* https://coders.talend.com/members/cschneider
+* 
+
